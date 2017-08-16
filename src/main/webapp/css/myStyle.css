@@ -1,0 +1,24 @@
+.spacer {
+	margin-top: 20px;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.error {
+	color: red;
+}
+
+
+.valide.ng-valid {
+	background-color: lightgreen;
+}
+
+.valide.ng-dirty.ng-invalid-required {
+	background-color: red;
+}
+
+.valide.ng-dirty.ng-invalid-minlength {
+	background-color: yellow;
+}

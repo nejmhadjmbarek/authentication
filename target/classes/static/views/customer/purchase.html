@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>customer purchase</title>
+</head>
+<body>
+	<h1>CUSTOMER PURCHASE</h1>
+		<div class="container spacer">
+			max<input type="text" ng-model="max"> min<input type="text"
+				ng-model="min">
+			<button class="btn btn-primary" ng-click="getPurchase()">Search</button>
+		</div>
+
+		<div class="container col-md-12">
+			<div class="col-md-8">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-click="orderByMe('idPurchase')">ID</th>
+							<th ng-click="orderByMe('totalValue')">TOTAL VALUE</th>
+							<th ng-click="orderByMe('numberOfProducts')">NUMBER PRODUCTS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="p in pagePurchases.content">
+							<td>{{p.idPurchase}}</td>
+							<td ng-click="myFunc()">{{p.totalValue | currency}}
+								<div ng-show="showMe">
+									<h1>Menu:</h1>
+									<div>Pizza</div>
+									<div>Pasta</div>
+									<div>Pesce</div>
+								</div>
+							</td>
+							<td>{{p.numberOfProducts}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="container center">
+					<ul class="nav nav-pills">
+						<li class="clickable" ng-class="{active:$index==currentPage}"
+							ng-repeat="p in pages track by $index"><a
+							ng-click="goToPage($index)">{{$index+1}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+</body>
+</html>
